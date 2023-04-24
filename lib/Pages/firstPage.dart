@@ -9,6 +9,17 @@ class FirsPage extends StatefulWidget {
 }
 
 class _FirsPageState extends State<FirsPage> {
+  String? katyshuuchununYsymy;
+  bool kyimyl= false;
+
+void ekinchiberkeotuu(){
+if(katyshuuchununYsymy != null){
+  if(katyshuuchununYsymy!.isEmpty){
+    kyimyl = false;
+  }else{kyimyl = true;}
+  setState(() { });
+}
+}
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -29,21 +40,31 @@ class _FirsPageState extends State<FirsPage> {
             height: 50,
             width: 270,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0), color: Colors.white,),
+              borderRadius: BorderRadius.circular(13.0), color: Colors.white,),
               child: TextFormField(
-                decoration: InputDecoration(labelText: "Ысымыңызды жазыңыз", 
+                onChanged: (String ? value){
+                  katyshuuchununYsymy = value;
+                },
+                decoration: const InputDecoration(labelText: "Ысымыңызды жазыңыз", 
                 labelStyle: TextStyle(color: Colors.blue, fontSize: 20), 
                 border: OutlineInputBorder() ),
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
+
+
           ),
           
           Image.asset("assets/firsPage.jpg"),
           const SizedBox(height: 25,),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, 
-            MaterialPageRoute(builder: (context)=> SecondPage()));
-          }, child: const Text("КИРИШҮҮ", 
+          ElevatedButton(style: ElevatedButton.styleFrom(
+            side: const BorderSide(width: 2, color: Colors.yellow),
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8)
+          ),
+          
+          onPressed: kyimyl ? (){
+             Navigator.push(context, 
+            MaterialPageRoute(builder: (context)=> const SecondPage()));
+          } : null, child: const Text("КИРИШҮҮ", 
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, 
           color: Colors.white),
           )
