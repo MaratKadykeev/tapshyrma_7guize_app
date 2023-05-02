@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tapshyrma_7guize_app/contstants/app_textStyle.dart';
+import 'package:tapshyrma_7guize_app/contstants/user_name.dart';
 import 'package:tapshyrma_7guize_app/useFail.dart';
 
 class SecondPage extends StatefulWidget {
-  const SecondPage({super.key});
+  final String name;
+  const SecondPage({super.key,required this.name});
 
   @override
   State<SecondPage> createState() => _SecondPageState();
@@ -12,6 +14,10 @@ class SecondPage extends StatefulWidget {
 class _SecondPageState extends State<SecondPage> {
   UseGuizew useGuizew = UseGuizew();
   List<Icon> iconAluu = [];
+  
+  
+
+ 
 
   void teksher(bool koldonuu){
     setState(() {
@@ -20,12 +26,10 @@ class _SecondPageState extends State<SecondPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Урматтуу'),
-          content: const Text('АЗАМАТСЫЗ!\n'
-              'СИЗ ТЕКСТТЕН ИЙГИЛИКТҮҮ ӨТТҮҢҮЗ!\n'
-              'Туура жооп: \n'
-              'Ката жооп: '),
+          title:   Text('${widget.name}!'),
+          content: const Text(AppUserName.azamat),
           actions: <Widget>[
+            
             TextButton(
               style: TextButton.styleFrom(
                 textStyle: Theme.of(context).textTheme.labelLarge,
@@ -91,7 +95,7 @@ body: Stack(
           teksher(true);
         },
 
-        child:  Icon(Icons.close, color: Colors.white, size: 50,),
+        child:  const Icon(Icons.close, color: Colors.white, size: 50,),
         style: ElevatedButton.styleFrom( shape: const CircleBorder(),
         padding: const EdgeInsets.all(10), backgroundColor: Colors.red,),
         

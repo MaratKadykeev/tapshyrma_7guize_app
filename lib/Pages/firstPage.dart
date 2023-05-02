@@ -42,10 +42,13 @@ if(katyshuuchununYsymy != null){
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(13.0), color: Colors.white,),
               child: TextFormField(
-                onChanged: (String ? value){
-                  katyshuuchununYsymy = value;
+              
+                onChanged: (String ? name){
+                  katyshuuchununYsymy = name;
                 },
-                decoration: const InputDecoration(labelText: "Ысымыңызды жазыңыз", 
+                decoration: const InputDecoration(
+                  hintText: '!',
+                  labelText: "Ысымыңызды жазыңыз", 
                 labelStyle: TextStyle(color: Colors.blue, fontSize: 20), 
                 border: OutlineInputBorder() ),
                 style: const TextStyle(fontSize: 20, color: Colors.black),
@@ -61,10 +64,11 @@ if(katyshuuchununYsymy != null){
             padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8)
           ),
           
-          onPressed: kyimyl ? (){
+          onPressed: (){
              Navigator.push(context, 
-            MaterialPageRoute(builder: (context)=> const SecondPage()));
-          } : null, child: const Text("КИРИШҮҮ", 
+            MaterialPageRoute(builder: (context)=>  SecondPage(name:katyshuuchununYsymy.toString() , )));
+          } ,
+           child: const Text("КИРИШҮҮ", 
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, 
           color: Colors.white),
           )
